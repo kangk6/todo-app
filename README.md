@@ -11,4 +11,4 @@ a simple to do app，用于帮助用户快速记录和管理待办事项，具�
 ### 安装
 本项目为纯前端项目，无需额外安装依赖。通过 `git` 克隆项目仓库到本地：  
 ```bash
-git clone <你的仓库链接>
+git clone https://github.com/kangk6/todo-app.git
