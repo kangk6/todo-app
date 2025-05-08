@@ -1,23 +1,53 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="智能待办事项管理工具，支持任务分类、优先级设置和进度跟踪">
     <link rel="stylesheet" href="styles.css">
-    <title>待办事项管理</title>
+    <title>智效 - 智能待办管理</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>待办事项</h1>
-        <div class="input-group">
-            <input type="text" id="taskInput" placeholder="输入待办事项">
-            <button id="addButton">添加</button>
+        <header class="app-header">
+            <h1>📋 智效待办</h1>
+            <div class="theme-switch">
+                <button id="themeToggle">🌓</button>
+            </div>
+        </header>
+
+        <div class="input-section">
+            <div class="input-group">
+                <input type="text" id="taskInput" placeholder="输入任务（例如：明天10点会议  #工作 🔼高）" 
+                       aria-label="输入待办事项">
+                <button id="addButton" aria-label="添加任务">➕ 添加</button>
+            </div>
+            <div class="quick-tags">
+                <button class="tag-btn" data-tag="#工作">工作</button>
+                <button class="tag-btn" data-tag="#学习">学习</button>
+                <button class="tag-btn" data-tag="#生活">生活</button>
+            </div>
         </div>
-        <ul id="taskList"></ul>
+
+        <div class="filter-bar">
+            <select id="filterSelect" aria-label="任务筛选">
+                <option value="all">全部任务</option>
+                <option value="#work">工作</option>
+                <option value="#study">学习</option>
+                <option value="#life">生活</option>
+            </select>
+        </div>
+
+        <ul id="taskList" class="task-list" aria-live="polite"></ul>
+
+        <div class="stats">
+            <span id="taskCount">总任务：0</span>
+            <progress id="progressBar" value="0" max="100"></progress>
+        </div>
     </div>
+    
     <script src="script.js"></script>
 </body>
-
 </html>
